@@ -19,17 +19,15 @@ while $running; do
     		"size": "512x512"
 	}' | jq -r '.data[0].url')
 	echo -e "\n\033[36mchatgpt \033[0mYour image was created. \n\nLink: ${image_url}\n"
-	if [[ "$TERM_PROGRAM" == "iTerm.app" ]]; then
-		curl -sS $image_url -o temp_image.png
-    	imgcat temp_image.png
-		rm temp_image.png
-	else
-		echo "Would you like to open it? (Yes/No)"
-		read answer
-		if [ "$answer" == "Yes" ] || [ "$answer" == "yes" ] || [ "$answer" == "y" ] || [ "$answer" == "Y" ] || [ "$answer" == "ok" ]; then
-  		xdg-open "${image_url}"
-		fi 
-	fi
+	curl -sS $image_url -o temp_image.png
+    	tiv temp_image.png
+	rm temp_image.png
+		#echo "Would you like to open it? (Yes/No)"
+		#read answer
+		#if [ "$answer" == "Yes" ] || [ "$answer" == "yes" ] || [ "$answer" == "y" ] || [ "$answer" == "Y" ] || [ "$answer" == "ok" ]; then
+  		#xdg-open "${image_url}"
+		#fi 
+	#fi
   else	
 	# escape quotation marks
 	escaped_prompt=$(echo "$prompt" | sed 's/"/\\"/g')
