@@ -27,7 +27,7 @@ while $running; do
 		echo "Would you like to open it? (Yes/No)"
 		read answer
 		if [ "$answer" == "Yes" ] || [ "$answer" == "yes" ] || [ "$answer" == "y" ] || [ "$answer" == "Y" ] || [ "$answer" == "ok" ]; then
-  		open "${image_url}"
+  		xdg-open "${image_url}"
 		fi 
 	fi
   else	
